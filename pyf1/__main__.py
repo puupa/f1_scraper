@@ -74,15 +74,16 @@ def season_results(year):
 
 
 def main():
-    season_results_dataframes = []
+    start = datetime.datetime.now()
+    writer = pd.ExcelWriter(
+        r'D:\WebScraping\Formula1Results\Formula1_Season_Results.xlsx', engine='xlsxwriter')
 
     for n in range(1950, 2021):
-        seasons_dataframes.append(season_results(n))
+        season_results(n).to_excel(writer, sheet_name=str(n), index=False)
 
-    writer = pd.ExcelWriter('Formula1_Season_Results')
-
-    for df in season_results_dataframes:
-        df.to_excel(writer, sheet_name=df['Grand Prix Date'].year)
+    writer.save()
+    end = datetime.datetime.now()
+    print(end - start)
 
 
 if __name__ == '__main__':
