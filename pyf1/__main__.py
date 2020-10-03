@@ -75,8 +75,11 @@ def season_results(year):
 
 def main():
     start = datetime.datetime.now()
+
+    cwd = os.getcwd()
+
     writer = pd.ExcelWriter(
-        r'D:\WebScraping\Formula1Results\Formula1_Season_Results.xlsx', engine='xlsxwriter')
+        f'{cwd}/Formula1_Season_Results.xlsx', engine='xlsxwriter')
 
     for n in range(1950, 2021):
         season_results(n).to_excel(writer, sheet_name=str(n), index=False)
