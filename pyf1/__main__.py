@@ -76,6 +76,14 @@ def season_results(year):
 def main():
     start = datetime.datetime.now()
 
+    driver_of_the_day_urls = [
+        'https://www.formula1.com/en/results/awards/driver-of-the-day-2016.html',
+        'https://www.formula1.com/en/results/awards/driver-of-the-day-2017.html',
+        'https://www.formula1.com/en/latest/article.driver-of-the-day.6dwMp9DDgssMeaAkgYuusQ.html'
+        'https://www.formula1.com/en/latest/article.driver-of-the-day-2019.4Mflx1u6tsAABdwuDIvXb8.html',
+        'https://www.formula1.com/en/latest/article.driver-of-the-day-2020.30G6kHOGAe7Wcz2KBwwObh.html'
+    ]
+
     cwd = os.getcwd()
 
     writer = pd.ExcelWriter(
